@@ -13,7 +13,7 @@ function initMap() {
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
     location: pyrmont,
-    radius: 500,
+    radius: 1500,
     type: ['restaurant']
   }, callback);
 }
@@ -27,21 +27,23 @@ function callback(results, status) {
       var h = document.getElementById('restaurantes') 
       var eachRestaurant = document.createElement('div') 
       var restaurant = document.createElement('div')              
-      var t = document.createTextNode(results[i].name);     
+      var nameRestaurant = document.createTextNode(results[i].name);     
       h.appendChild(eachRestaurant);
       eachRestaurant.appendChild(restaurant); 
-      restaurant.appendChild(t);
+      restaurant.appendChild(nameRestaurant);
 
       var img = document.createElement('img')
       img.setAttribute("src", results[i].icon )
       restaurant.appendChild(img);
+
+      img.setAttribute("class", "styleImg")
 
       var button = document.createElement('button')
       var buttonText = document.createTextNode('Ver más');
       button.appendChild(buttonText);
       restaurant.appendChild(button);
 
-      eachRestaurant.setAttribute("class", "row")
+      eachRestaurant.setAttribute("class", "col-md-4")
       restaurant.setAttribute("class", "estilo")
 
       button.setAttribute("class", "buttonStyle")
