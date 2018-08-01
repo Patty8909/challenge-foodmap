@@ -30,26 +30,33 @@ function callback(results, status) {
       h.appendChild(eachRestaurant);
       eachRestaurant.appendChild(t);
 
+      var img = document.createElement('img')
+      img.setAttribute("src", results[i].icon )
+      h.appendChild(img);
+
       var button = document.createElement('button')
       var buttonText = document.createTextNode('Ver más');
       button.appendChild(buttonText);
       h.appendChild(button);
 
-      eachRestaurant.setAttribute("data-nombre",results[i].name)
-      eachRestaurant.setAttribute("data-vici",results[i].vicinity)
+      button.setAttribute("data-nombre",results[i].name)
+      button.setAttribute("data-vici",results[i].vicinity)
+      button.setAttribute("data-rating",results[i].rating)
+      button.setAttribute("data-toggle", "modal")
+      button.setAttribute("data-target", "#exampleModal")
 
-      eachRestaurant.addEventListener('click', function() {
-          console.log(this)
+      button.addEventListener('click', function() {
           var nombre = this.dataset.nombre;
           console.log(nombre)
           var vicin = this.dataset.vici;
           console.log(vicin)
 
-          if(this == nombre) {
-            for (var i = 0; i < results.length; i++) {
-            console.log(results[i].vicinity)
-            }
-          }
+          var title = document.getElementById('exampleModalLabel')
+          title.textContent = nombre;
+
+          var body = document.getElementById('modalBody')
+          body.textContent = vicin;
+
       });
 
     }
@@ -107,3 +114,4 @@ function createMarker(place) {
 }
 
 window.onload = initMap;
+
