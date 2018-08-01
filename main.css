@@ -1,36 +1,44 @@
 #map {
+  width: 80%;
+  height: 40vh;
+}
+body {
+  background-color: #2B2B2B;
+}
+/*************title**************/
+.styleTitle {
   width: 100%;
-  height: 50vh;
+  padding: 2%;
+  color: rgb(255, 145, 0);
+}
+.styleSubtitle {
+  width: 100%;
+  padding: 1%;
+  color: rgb(255, 145, 0);
+}
+.styleContainerInput {
+  width: 100%;
+}
+.styleInput {
+  width: 50%;
+  border-radius: 7px;
+  padding: 5px;
 }
 
-/******************ventana emergente*****************/
-.contenedor {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0px;
-  left: 0px;
-  background-color: rgba(0, 0, 0, 0.5);
-  visibility: hidden;
-}
-.modal {
-  background-color: white;
-  border-radius: 4px;
-  padding: 25px;
-  margin: 10% auto;
-  width: 50%;
-  height: auto;
-}
-.cerrar {
-  width: auto;
-  height: auto;
-  cursor: pointer;
-  background-color: rgba(255, 0, 0, 0.5);
+/***********box restaurants*************/
+.estilo {
+  border: 2px solid rgb(255, 145, 0);
+  border-radius: 5px;
+  color: rgb(235, 116, 37);
   padding: 7px;
-  float: right;
-  font-family: "Calibri";
+  margin: 7px;
+  width: 350px;
   font-weight: bold;
+  background-color: rgb(214, 205, 205);
 }
-.cerrar:hover {
-  background-color: rgba(255, 0, 0, 1);
+.buttonStyle {
+  border-radius: 5px;
+  background-color: #2B2B2B;
+  color: white;
+  padding: 4px;
 }

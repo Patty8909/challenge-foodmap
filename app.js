@@ -25,20 +25,26 @@ function callback(results, status) {
       console.log(results[i]);
 
       var h = document.getElementById('restaurantes') 
-      var eachRestaurant = document.createElement('div')           
+      var eachRestaurant = document.createElement('div') 
+      var restaurant = document.createElement('div')              
       var t = document.createTextNode(results[i].name);     
       h.appendChild(eachRestaurant);
-      eachRestaurant.appendChild(t);
+      eachRestaurant.appendChild(restaurant); 
+      restaurant.appendChild(t);
 
       var img = document.createElement('img')
       img.setAttribute("src", results[i].icon )
-      h.appendChild(img);
+      restaurant.appendChild(img);
 
       var button = document.createElement('button')
       var buttonText = document.createTextNode('Ver más');
       button.appendChild(buttonText);
-      h.appendChild(button);
+      restaurant.appendChild(button);
 
+      eachRestaurant.setAttribute("class", "row")
+      restaurant.setAttribute("class", "estilo")
+
+      button.setAttribute("class", "buttonStyle")
       button.setAttribute("data-nombre",results[i].name)
       button.setAttribute("data-vici",results[i].vicinity)
       button.setAttribute("data-rating",results[i].rating)
