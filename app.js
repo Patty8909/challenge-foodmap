@@ -10,10 +10,11 @@ function initMap() {
   });
 
   infowindow = new google.maps.InfoWindow();
+
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
     location: pyrmont,
-    radius: 1500,
+    radius: 1000,
     type: ['restaurant']
   }, callback);
 }
