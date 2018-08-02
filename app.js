@@ -1,3 +1,13 @@
+$(document).ready(vistaSplash)
+
+function vistaSplash() {
+  $('.main-view').hide();
+  setTimeout(function() {
+    $('.vista-splash').hide();
+    $('.main-view').show();   
+  },3000)
+}
+
 var map;
 var infowindow;
 
@@ -87,6 +97,11 @@ function createMarker(place) {
   /***************** input ***************** */
   var input = document.getElementById('pac-input');
   var autocomplete = new google.maps.places.Autocomplete(input);
+
+  input.addEventListener('keyup', function() {
+    filter = input.value.toUpperCase();
+    console.log(filter);
+  })
 
   autocomplete.bindTo('bounds', map);
   autocomplete.setFields(['address_components', 'geometry', 'icon', 'name']);
