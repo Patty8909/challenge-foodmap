@@ -33,7 +33,7 @@ function callback(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       createMarker(results[i]);
-      console.log(results[i]);
+      // console.log(results[i]);
 
       var h = document.getElementById('restaurantes') 
       var eachRestaurant = document.createElement('div') 
@@ -75,12 +75,33 @@ function callback(results, status) {
 
           var body = document.getElementById('modalBody')
           body.textContent = vicin;
-
       });
 
+      var input = document.getElementById('pac-input');      
+
+      input.addEventListener('keyup', function() {
+        filter = input.value.toUpperCase();
+        index = filter.indexOf();
+        console.log(index);
+
+        for (var i = 0; i < results.length; i++) {
+          // console.log(results[i].name);
+          a = results[i].name
+          console.log(a)
+
+          console.log(a.toUpperCase().indexOf(filter))
+
+          if (a.toUpperCase().indexOf(filter) > -1) {
+            restaurant.style.display = "";
+        } else {
+            restaurant.style.display = "none";
+        }
+        }
+      })
     }
   }
 }
+
 
 function createMarker(place) {
   var placeLoc = place.geometry.location;
@@ -98,10 +119,7 @@ function createMarker(place) {
   var input = document.getElementById('pac-input');
   var autocomplete = new google.maps.places.Autocomplete(input);
 
-  input.addEventListener('keyup', function() {
-    filter = input.value.toUpperCase();
-    console.log(filter);
-  })
+  
 
   autocomplete.bindTo('bounds', map);
   autocomplete.setFields(['address_components', 'geometry', 'icon', 'name']);
